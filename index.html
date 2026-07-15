@@ -775,15 +775,6 @@
         .auth-top .auth-buttons .btn.logout:hover {
             background: rgba(200, 60, 60, 0.2);
         }
-        .auth-top .auth-buttons .btn.settings {
-            background: rgba(247, 201, 72, 0.08);
-            border-color: rgba(247, 201, 72, 0.12);
-            color: #f7e272;
-        }
-        body.theme-day .auth-top .auth-buttons .btn.settings { color: #8a7a2a; }
-        .auth-top .auth-buttons .btn.settings:hover {
-            background: rgba(247, 201, 72, 0.15);
-        }
         .modal-overlay {
             display: none;
             position: fixed;
@@ -911,71 +902,6 @@
         .modal-box .status.error {
             color: #ff6b6b;
         }
-        .modal-box .user-list {
-            max-height: 300px;
-            overflow-y: auto;
-            margin: 10px 0;
-            border-radius: 16px;
-            background: rgba(0,0,0,0.1);
-            padding: 4px;
-        }
-        body.theme-day .modal-box .user-list { background: rgba(0,0,0,0.02); }
-        .modal-box .user-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 14px;
-            border-bottom: 1px solid rgba(60, 85, 140, 0.06);
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .modal-box .user-item .uname {
-            color: #d6e0f5;
-            font-weight: 500;
-        }
-        body.theme-day .modal-box .user-item .uname { color: #1a1a3a; }
-        .modal-box .user-item .utag {
-            color: #b88aff;
-            font-size: 0.75rem;
-            background: rgba(100,60,200,0.1);
-            padding: 0 10px;
-            border-radius: 40px;
-        }
-        body.theme-day .modal-box .user-item .utag { color: #5a3a8a; }
-        .modal-box .user-item .ufriends {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-        }
-        .modal-box .user-item .friend-btn {
-            padding: 4px 14px;
-            border-radius: 40px;
-            border: 1px solid;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: 0.3s;
-            background: transparent;
-            font-weight: 600;
-        }
-        .modal-box .user-item .friend-btn.add {
-            border-color: rgba(60, 180, 80, 0.3);
-            color: #a8d08d;
-        }
-        .modal-box .user-item .friend-btn.add:hover {
-            background: rgba(60, 180, 80, 0.1);
-        }
-        .modal-box .user-item .friend-btn.remove {
-            border-color: rgba(200, 60, 60, 0.3);
-            color: #ff7a7a;
-        }
-        .modal-box .user-item .friend-btn.remove:hover {
-            background: rgba(200, 60, 60, 0.1);
-        }
-        .modal-box .user-item .friend-badge {
-            color: #a8d08d;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
         .modal-box .theme-select {
             display: flex;
             gap: 10px;
@@ -1087,12 +1013,6 @@
             .modal-box {
                 padding: 24px 18px;
                 max-width: 100%;
-            }
-            .modal-box .user-item {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-                gap: 4px;
             }
         }
         @media (max-width: 420px) {
@@ -1270,6 +1190,94 @@
             font-style: italic;
             color: #6a80b5;
         }
+        /* ===== НАСТРОЙКИ ВКЛАДКА ===== */
+        .settings-section {
+            margin: 10px 0 20px;
+            padding: 16px 20px;
+            background: rgba(0, 4, 16, 0.2);
+            border-radius: 24px;
+            border: 1px solid rgba(60, 85, 140, 0.08);
+        }
+        .settings-section label {
+            color: #8aa0d0;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .settings-section input {
+            background: rgba(10, 18, 40, 0.5);
+            border: 1px solid rgba(60, 85, 140, 0.2);
+            border-radius: 16px;
+            padding: 10px 16px;
+            color: #d6e0f5;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 280px;
+            transition: 0.3s;
+        }
+        body.theme-day .settings-section input { background: rgba(0,0,0,0.04); color: #1a1a3a; border-color: rgba(0,0,0,0.1); }
+        body.theme-night .settings-section input { background: rgba(10,10,30,0.5); color: #c0c8e8; border-color: rgba(50,50,100,0.15); }
+        .settings-section input:focus {
+            outline: none;
+            border-color: #f7c948;
+            box-shadow: 0 0 20px rgba(247, 201, 72, 0.08);
+        }
+        .settings-section .theme-select {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+        .settings-section .theme-select .theme-btn {
+            padding: 8px 20px;
+            border-radius: 40px;
+            border: 2px solid rgba(60,85,140,0.15);
+            cursor: pointer;
+            transition: 0.3s;
+            background: transparent;
+            color: #6a80b5;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        body.theme-day .settings-section .theme-select .theme-btn { color: #4a5a8a; }
+        .settings-section .theme-select .theme-btn:hover {
+            border-color: #f7c948;
+        }
+        .settings-section .theme-select .theme-btn.active {
+            border-color: #f7c948;
+            background: rgba(247,201,72,0.1);
+            color: #f7e272;
+        }
+        body.theme-day .settings-section .theme-select .theme-btn.active { color: #2a3a6a; }
+        .settings-section .hint {
+            font-size: 0.7rem;
+            color: #4f659a;
+            margin-top: 4px;
+        }
+        .settings-section .btn-save {
+            padding: 10px 28px;
+            border-radius: 60px;
+            border: 1px solid rgba(60, 180, 80, 0.2);
+            background: rgba(60, 180, 80, 0.12);
+            color: #a8d08d;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+        .settings-section .btn-save:hover {
+            background: rgba(60, 180, 80, 0.2);
+        }
+        .settings-status {
+            padding: 8px 0;
+            color: #a8d08d;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .settings-status.error {
+            color: #ff6b6b;
+        }
     </style>
 </head>
 <body>
@@ -1319,7 +1327,6 @@
             <div class="auth-buttons" id="authButtons">
                 <button class="btn login" id="showLoginBtn">🔓 Login</button>
                 <button class="btn register" id="showRegisterBtn">📝 Register</button>
-                <button class="btn settings" id="showSettingsBtn">⚙️ Settings</button>
                 <button class="btn logout" id="logoutBtn" style="display:none;">🚪 Logout</button>
             </div>
         </div>
@@ -1327,8 +1334,7 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="home">🏠 Home</button>
             <button class="tab-btn" data-tab="bulletin">📰 Bulletin</button>
-            <button class="tab-btn" data-tab="users">👥 Users</button>
-            <button class="tab-btn" data-tab="friends">🤝 Friends</button>
+            <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
         </div>
 
         <main class="main-card">
@@ -1501,7 +1507,7 @@
 
             </div>
 
-            <!-- ===== TAB: BULLETIN (ВЕРНУЛ!) ===== -->
+            <!-- ===== TAB: BULLETIN ===== -->
             <div class="tab-content" id="tab-bulletin">
 
                 <div class="intro-block" style="border-bottom-color: rgba(255,215,0,0.15);">
@@ -1615,29 +1621,40 @@
 
             </div>
 
-            <!-- ===== TAB: USERS ===== -->
-            <div class="tab-content" id="tab-users">
+            <!-- ===== TAB: SETTINGS (ОТДЕЛЬНАЯ ВКЛАДКА) ===== -->
+            <div class="tab-content" id="tab-settings">
                 <div class="section">
                     <div class="section-title">
-                        <span>👥</span> All Users
+                        <span>⚙️</span> Settings
                         <span class="accent-line"></span>
                     </div>
-                    <div class="card-block" id="usersListContainer">
-                        <div style="text-align:center;padding:20px;color:#4f659a;">👥 Loading users...</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- ===== TAB: FRIENDS ===== -->
-            <div class="tab-content" id="tab-friends">
-                <div class="section">
-                    <div class="section-title">
-                        <span>🤝</span> My Friends
-                        <span class="accent-line"></span>
+                    <!-- Смена пароля -->
+                    <div class="settings-section">
+                        <label>🔑 Change Password</label>
+                        <input type="password" id="settingsNewPassword" placeholder="New password (min 4 chars)">
+                        <div class="hint">Enter a new password (at least 4 characters)</div>
                     </div>
-                    <div class="card-block" id="friendsListContainer">
-                        <div style="text-align:center;padding:20px;color:#4f659a;">🤝 You have no friends yet</div>
+
+                    <!-- Смена тега -->
+                    <div class="settings-section">
+                        <label>🏷️ Change Tag</label>
+                        <input type="text" id="settingsNewTag" placeholder="e.g. NG, VIP, STAR" style="text-transform:uppercase; max-width:200px;">
+                        <div class="hint">⚠️ Tag must be unique! Max 6 characters. Cannot be taken by another user.</div>
                     </div>
+
+                    <!-- Тема -->
+                    <div class="settings-section">
+                        <label>🎨 Theme</label>
+                        <div class="theme-select" id="settingsThemeSelect">
+                            <button class="theme-btn active" data-theme="space">🌌 Space</button>
+                            <button class="theme-btn" data-theme="day">☀️ Day</button>
+                            <button class="theme-btn" data-theme="night">🌙 Night</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-status" id="settingsStatus"></div>
+                    <button class="btn-save" id="settingsSaveBtn">💾 Save Settings</button>
                 </div>
             </div>
 
@@ -1675,39 +1692,6 @@
             <div class="btn-row">
                 <button class="btn secondary" id="registerSubmitBtn">📝 Register</button>
                 <button class="btn close" id="registerCloseBtn">✕ Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Настройки -->
-    <div class="modal-overlay" id="settingsModal">
-        <div class="modal-box">
-            <h2>⚙️ Settings</h2>
-            
-            <div style="margin: 10px 0;">
-                <label style="color: #6a80b5; font-size: 0.85rem;">🔑 Change Password</label>
-                <input type="password" id="settingsNewPassword" placeholder="New password (min 4 chars)">
-            </div>
-            
-            <div style="margin: 10px 0;">
-                <label style="color: #6a80b5; font-size: 0.85rem;">🏷️ Change Tag (max 6 chars, unique)</label>
-                <input type="text" id="settingsNewTag" placeholder="e.g. NG, VIP, STAR" style="text-transform:uppercase; max-width:150px;">
-                <div style="font-size:0.7rem; color:#4f659a; margin-top:2px;">⚠️ Tag must be unique! Cannot be taken by another user.</div>
-            </div>
-            
-            <div style="margin: 10px 0;">
-                <label style="color: #6a80b5; font-size: 0.85rem;">🎨 Theme</label>
-                <div class="theme-select">
-                    <button class="theme-btn active" data-theme="space">🌌 Space</button>
-                    <button class="theme-btn" data-theme="day">☀️ Day</button>
-                    <button class="theme-btn" data-theme="night">🌙 Night</button>
-                </div>
-            </div>
-            
-            <div class="status" id="settingsStatus"></div>
-            <div class="btn-row">
-                <button class="btn primary" id="settingsSaveBtn">💾 Save</button>
-                <button class="btn close" id="settingsCloseBtn">✕ Close</button>
             </div>
         </div>
     </div>
@@ -1817,8 +1801,6 @@
                     currentUser = null;
                 }
                 updateUI();
-                renderUsers();
-                renderFriends();
             } catch (e) {
                 if (username) {
                     localStorage.setItem('starryCurrentUser_encrypted', btoa(btoa(JSON.stringify(username))));
@@ -1828,8 +1810,6 @@
                     currentUser = null;
                 }
                 updateUI();
-                renderUsers();
-                renderFriends();
             }
         }
 
@@ -1843,7 +1823,7 @@
             try {
                 localStorage.setItem('starryTheme', theme);
                 document.body.className = 'theme-' + theme;
-                document.querySelectorAll('.theme-btn').forEach(btn => {
+                document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.theme === theme);
                 });
             } catch (e) {}
@@ -2001,8 +1981,6 @@
         function renderAll() {
             renderCodes();
             renderAnnouncements();
-            renderUsers();
-            renderFriends();
             updateUI();
         }
 
@@ -2018,7 +1996,6 @@
             const logoutBtn = document.getElementById('logoutBtn');
             const loginBtn = document.getElementById('showLoginBtn');
             const registerBtn = document.getElementById('showRegisterBtn');
-            const settingsBtn = document.getElementById('showSettingsBtn');
 
             if (currentUser) {
                 const users = getUsers();
@@ -2038,7 +2015,6 @@
                 logoutBtn.style.display = 'inline-block';
                 loginBtn.style.display = 'none';
                 registerBtn.style.display = 'none';
-                settingsBtn.style.display = 'inline-block';
             } else {
                 displayName.textContent = 'Guest';
                 displayName.style.color = '#6a80b5';
@@ -2046,7 +2022,6 @@
                 logoutBtn.style.display = 'none';
                 loginBtn.style.display = 'inline-block';
                 registerBtn.style.display = 'inline-block';
-                settingsBtn.style.display = 'none';
             }
         }
 
@@ -2139,100 +2114,13 @@
                 }
             }
 
-            users[username] = { password: password, tag: null, friends: [] };
+            users[username] = { password: password, tag: null };
             saveUsers(users);
             status.textContent = '✅ Registration successful! You can now login.';
             status.className = 'status';
             document.getElementById('registerUsername').value = '';
             document.getElementById('registerPassword').value = '';
             setTimeout(() => hideModal('registerModal'), 800);
-        });
-
-        // ---- НАСТРОЙКИ ----
-        document.getElementById('showSettingsBtn').addEventListener('click', function() {
-            if (!currentUser) {
-                showToast('❌ You must be logged in!');
-                return;
-            }
-            document.getElementById('settingsNewPassword').value = '';
-            document.getElementById('settingsNewTag').value = '';
-            document.getElementById('settingsStatus').textContent = '';
-            document.getElementById('settingsStatus').className = 'status';
-            
-            const currentTheme = getTheme();
-            document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.theme === currentTheme);
-            });
-            
-            showModal('settingsModal');
-        });
-        document.getElementById('settingsCloseBtn').addEventListener('click', () => hideModal('settingsModal'));
-        document.getElementById('settingsModal').addEventListener('click', function(e) {
-            if (e.target === this) hideModal('settingsModal');
-        });
-
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const theme = this.dataset.theme;
-                setTheme(theme);
-                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        document.getElementById('settingsSaveBtn').addEventListener('click', function() {
-            const newPass = document.getElementById('settingsNewPassword').value.trim();
-            const newTag = document.getElementById('settingsNewTag').value.trim().toUpperCase();
-            const status = document.getElementById('settingsStatus');
-
-            if (!newPass && !newTag) {
-                status.textContent = '❌ Enter at least one field!';
-                status.className = 'status error';
-                return;
-            }
-
-            const users = getUsers();
-            const oldName = currentUser;
-
-            if (newPass) {
-                if (newPass.length < 4) {
-                    status.textContent = '❌ Password must be at least 4 characters!';
-                    status.className = 'status error';
-                    return;
-                }
-                users[oldName].password = newPass;
-            }
-
-            if (newTag) {
-                if (newTag.length > 6) {
-                    status.textContent = '❌ Tag max 6 characters!';
-                    status.className = 'status error';
-                    return;
-                }
-                let tagTaken = false;
-                for (let key in users) {
-                    if (key !== oldName && users[key].tag && users[key].tag.toUpperCase() === newTag) {
-                        tagTaken = true;
-                        break;
-                    }
-                }
-                if (tagTaken) {
-                    status.textContent = '❌ Tag "' + newTag + '" is already taken!';
-                    status.className = 'status error';
-                    return;
-                }
-                users[oldName].tag = newTag || null;
-            }
-
-            saveUsers(users);
-            status.textContent = '✅ Settings saved!';
-            status.className = 'status';
-            document.getElementById('settingsNewPassword').value = '';
-            document.getElementById('settingsNewTag').value = '';
-            updateUI();
-            renderUsers();
-            renderFriends();
-            setTimeout(() => hideModal('settingsModal'), 800);
         });
 
         // ---- ЛОГАУТ ----
@@ -2254,151 +2142,88 @@
         updateUI();
 
         // ================================================================
-        //  USERS LIST & FRIENDS
+        //  SETTINGS (ВКЛАДКА)
         // ================================================================
 
-        function renderUsers() {
-            const container = document.getElementById('usersListContainer');
-            if (!container) return;
-            
-            const users = getUsers();
-            const userNames = Object.keys(users);
-            
-            if (userNames.length === 0) {
-                container.innerHTML = `<div style="text-align:center;padding:20px;color:#4f659a;">👥 No users registered yet</div>`;
-                return;
-            }
-            
-            let html = `<div class="user-list">`;
-            userNames.forEach(name => {
-                const userData = users[name];
-                const tag = userData.tag || '';
-                const isCurrent = (name === currentUser);
-                const isFriend = currentUser && userData.friends && userData.friends.includes(currentUser);
-                
-                html += `
-                    <div class="user-item">
-                        <div>
-                            <span class="uname">${isCurrent ? '⭐ ' : ''}${name}${isCurrent ? ' (you)' : ''}</span>
-                            ${tag ? `<span class="utag">[${tag}]</span>` : ''}
-                        </div>
-                        <div class="ufriends">
-                            ${currentUser && !isCurrent ? 
-                                (isFriend ? 
-                                    `<button class="friend-btn remove" data-user="${name}">❌ Remove</button>` :
-                                    `<button class="friend-btn add" data-user="${name}">➕ Add Friend</button>`
-                                ) : 
-                                (isCurrent ? `<span class="friend-badge">👤 You</span>` : '')
-                            }
-                        </div>
-                    </div>
-                `;
-            });
-            html += `</div>`;
-            container.innerHTML = html;
-            
-            container.querySelectorAll('.friend-btn.add').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const username = this.dataset.user;
-                    addFriend(username);
-                });
-            });
-            container.querySelectorAll('.friend-btn.remove').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const username = this.dataset.user;
-                    removeFriend(username);
-                });
-            });
-        }
+        // Обновляем активную тему при загрузке
+        const savedTheme = getTheme();
+        document.body.className = 'theme-' + savedTheme;
+        document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === savedTheme);
+        });
 
-        function renderFriends() {
-            const container = document.getElementById('friendsListContainer');
-            if (!container) return;
-            
-            if (!currentUser) {
-                container.innerHTML = `<div style="text-align:center;padding:20px;color:#4f659a;">🔒 Login to see your friends</div>`;
-                return;
-            }
-            
-            const users = getUsers();
-            const userData = users[currentUser] || {};
-            const friends = userData.friends || [];
-            
-            if (friends.length === 0) {
-                container.innerHTML = `<div style="text-align:center;padding:20px;color:#4f659a;">🤝 You have no friends yet. Add some from the Users tab!</div>`;
-                return;
-            }
-            
-            let html = `<div class="user-list">`;
-            friends.forEach(friendName => {
-                const friendData = users[friendName];
-                const tag = friendData ? friendData.tag || '' : '';
-                html += `
-                    <div class="user-item">
-                        <div>
-                            <span class="uname">${friendName}</span>
-                            ${tag ? `<span class="utag">[${tag}]</span>` : ''}
-                        </div>
-                        <div class="ufriends">
-                            <span class="friend-badge">✅ Friend</span>
-                            <button class="friend-btn remove" data-user="${friendName}">❌ Remove</button>
-                        </div>
-                    </div>
-                `;
+        // Выбор темы
+        document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const theme = this.dataset.theme;
+                setTheme(theme);
             });
-            html += `</div>`;
-            container.innerHTML = html;
-            
-            container.querySelectorAll('.friend-btn.remove').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const username = this.dataset.user;
-                    removeFriend(username);
-                });
-            });
-        }
+        });
 
-        function addFriend(username) {
-            if (!currentUser) {
-                showToast('❌ You must be logged in!');
+        // Сохранение настроек
+        document.getElementById('settingsSaveBtn').addEventListener('click', function() {
+            const newPass = document.getElementById('settingsNewPassword').value.trim();
+            const newTag = document.getElementById('settingsNewTag').value.trim().toUpperCase();
+            const status = document.getElementById('settingsStatus');
+
+            if (!newPass && !newTag) {
+                status.textContent = '❌ Enter at least one field!';
+                status.className = 'settings-status error';
                 return;
             }
-            if (username === currentUser) {
-                showToast('❌ You cannot add yourself!');
-                return;
-            }
-            
+
             const users = getUsers();
-            const userData = users[currentUser];
-            
-            if (!userData.friends) userData.friends = [];
-            if (userData.friends.includes(username)) {
-                showToast('ℹ️ Already friends with ' + username);
+            const oldName = currentUser;
+
+            if (!oldName) {
+                status.textContent = '❌ You must be logged in!';
+                status.className = 'settings-status error';
                 return;
             }
-            
-            userData.friends.push(username);
+
+            // Смена пароля
+            if (newPass) {
+                if (newPass.length < 4) {
+                    status.textContent = '❌ Password must be at least 4 characters!';
+                    status.className = 'settings-status error';
+                    return;
+                }
+                users[oldName].password = newPass;
+            }
+
+            // Смена тега
+            if (newTag) {
+                if (newTag.length > 6) {
+                    status.textContent = '❌ Tag max 6 characters!';
+                    status.className = 'settings-status error';
+                    return;
+                }
+                let tagTaken = false;
+                for (let key in users) {
+                    if (key !== oldName && users[key].tag && users[key].tag.toUpperCase() === newTag) {
+                        tagTaken = true;
+                        break;
+                    }
+                }
+                if (tagTaken) {
+                    status.textContent = '❌ Tag "' + newTag + '" is already taken!';
+                    status.className = 'settings-status error';
+                    return;
+                }
+                users[oldName].tag = newTag || null;
+            }
+
             saveUsers(users);
-            renderUsers();
-            renderFriends();
-            showToast('✅ Added ' + username + ' to friends!');
-        }
-
-        function removeFriend(username) {
-            if (!currentUser) return;
-            
-            const users = getUsers();
-            const userData = users[currentUser];
-            if (!userData.friends) return;
-            
-            const idx = userData.friends.indexOf(username);
-            if (idx !== -1) {
-                userData.friends.splice(idx, 1);
-                saveUsers(users);
-                renderUsers();
-                renderFriends();
-                showToast('❌ Removed ' + username + ' from friends');
-            }
-        }
+            status.textContent = '✅ Settings saved successfully!';
+            status.className = 'settings-status';
+            document.getElementById('settingsNewPassword').value = '';
+            document.getElementById('settingsNewTag').value = '';
+            updateUI();
+            setTimeout(() => {
+                status.textContent = '';
+                status.className = 'settings-status';
+            }, 3000);
+        });
 
         // ================================================================
         //  TABS
@@ -2411,8 +2236,6 @@
                 const tabId = this.dataset.tab;
                 document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
                 document.getElementById('tab-' + tabId).classList.add('active');
-                if (tabId === 'users') renderUsers();
-                if (tabId === 'friends') renderFriends();
             });
         });
 
@@ -2439,17 +2262,12 @@
         //  INIT
         // ================================================================
 
-        const savedTheme = getTheme();
-        document.body.className = 'theme-' + savedTheme;
-
         loadData();
-        renderUsers();
-        renderFriends();
 
         console.log('✅ Starry Horizons system loaded successfully');
         console.log('🔒 All data is encrypted and protected');
         console.log('👮 Security active — console is monitored');
-        console.log('👥 Users: ' + Object.keys(getUsers()).length);
+        console.log('📋 Tabs: Home, Bulletin, Settings');
     </script>
 
 </body>
