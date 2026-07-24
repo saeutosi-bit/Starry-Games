@@ -1467,7 +1467,7 @@
                             </div>
                         </div>
                         <div class="countdown-status" id="countdownStatus">
-                            UPDATE:<span class="highlight">August 8, 2026 — 6:00 PM</span>
+                            UPDATE 2.0 : <span class="highlight">August 2, 2026 — 6:00 PM</span>
                         </div>
                     </div>
                 </div>
@@ -2365,7 +2365,7 @@
         //  COUNTDOWN TIMER (ОБРАТНЫЙ ОТСЧЕТ)
         // ================================================================
 
-        const targetDate = new Date('August 8, 2026 18:00:00').getTime();
+        const targetDate = new Date('August 2, 2026 18:00:00').getTime();
 
         function updateCountdown() {
             const now = Date.now();
@@ -2380,10 +2380,10 @@
                 return;
             }
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
