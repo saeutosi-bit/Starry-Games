@@ -33,10 +33,6 @@
         body.theme-night .main-card { background: rgba(10,10,30,0.9); color: #c0c8e8; border-color: rgba(100,100,200,0.1); }
         body.theme-space .main-card { background: rgba(6,10,22,0.7); color: #d6e0f5; border-color: rgba(60,85,140,0.15); }
         
-        body.theme-day .auth-top { background: rgba(255,255,255,0.85); border-color: rgba(0,0,0,0.1); }
-        body.theme-night .auth-top { background: rgba(10,10,30,0.9); border-color: rgba(100,100,200,0.1); }
-        body.theme-space .auth-top { background: rgba(8,12,26,0.6); border-color: rgba(60,85,140,0.12); }
-        
         body.theme-day .logo { color: #2a2a5a; }
         body.theme-night .logo { color: #aac0f0; }
         
@@ -365,20 +361,6 @@
             border-color: #b8942b;
             color: #f5d742;
         }
-        .sync-status {
-            font-size: 0.7rem;
-            color: #4f659a;
-            padding: 2px 12px;
-            border-radius: 40px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(60, 85, 140, 0.12);
-            transition: 0.3s;
-        }
-        body.theme-day .sync-status { background: rgba(0,0,0,0.05); color: #5a6a8a; }
-        .sync-status.synced {
-            color: #a8d08d;
-            border-color: #4a8a5a;
-        }
         .tabs {
             display: flex;
             gap: 4px;
@@ -694,338 +676,6 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
-        .auth-top {
-            background: rgba(8, 12, 26, 0.6);
-            backdrop-filter: blur(16px);
-            border-radius: 60px;
-            padding: 10px 24px;
-            border: 1px solid rgba(60, 85, 140, 0.12);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            transition: background 0.5s, border-color 0.5s;
-        }
-        .auth-top .user-info {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .auth-top .user-info .username {
-            color: #f5e27a;
-            font-weight: 600;
-        }
-        body.theme-day .auth-top .user-info .username { color: #2a3a6a; }
-        .auth-top .user-info .tag-badge {
-            background: rgba(100, 60, 200, 0.2);
-            border: 1px solid rgba(100, 60, 200, 0.2);
-            padding: 2px 12px;
-            border-radius: 40px;
-            color: #b88aff;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        body.theme-day .auth-top .user-info .tag-badge { background: rgba(100,60,200,0.08); color: #5a3a8a; }
-        .auth-top .auth-buttons {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .auth-top .auth-buttons .btn {
-            padding: 6px 18px;
-            border-radius: 40px;
-            border: 1px solid transparent;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: 0.3s;
-            background: transparent;
-            color: #6a80b5;
-        }
-        body.theme-day .auth-top .auth-buttons .btn { color: #4a5a8a; }
-        .auth-top .auth-buttons .btn:hover {
-            color: #aac0f0;
-        }
-        .auth-top .auth-buttons .btn.login {
-            background: rgba(60, 180, 80, 0.12);
-            border-color: rgba(60, 180, 80, 0.2);
-            color: #a8d08d;
-        }
-        body.theme-day .auth-top .auth-buttons .btn.login { color: #2a7a3a; }
-        .auth-top .auth-buttons .btn.login:hover {
-            background: rgba(60, 180, 80, 0.2);
-        }
-        .auth-top .auth-buttons .btn.register {
-            background: rgba(60, 130, 255, 0.12);
-            border-color: rgba(60, 130, 255, 0.2);
-            color: #7aafff;
-        }
-        body.theme-day .auth-top .auth-buttons .btn.register { color: #2a5a9a; }
-        .auth-top .auth-buttons .btn.register:hover {
-            background: rgba(60, 130, 255, 0.2);
-        }
-        .auth-top .auth-buttons .btn.logout {
-            background: rgba(200, 60, 60, 0.12);
-            border-color: rgba(200, 60, 60, 0.15);
-            color: #ff7a7a;
-        }
-        .auth-top .auth-buttons .btn.logout:hover {
-            background: rgba(200, 60, 60, 0.2);
-        }
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .modal-overlay.show {
-            display: flex;
-        }
-        .modal-box {
-            background: rgba(8, 12, 26, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 40px;
-            padding: 32px 34px;
-            border: 1px solid rgba(60, 85, 140, 0.15);
-            max-width: 500px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
-            animation: modalIn 0.3s ease;
-        }
-        body.theme-day .modal-box { background: rgba(255,255,255,0.95); border-color: rgba(0,0,0,0.1); color: #1a1a3a; }
-        body.theme-night .modal-box { background: rgba(10,10,30,0.95); border-color: rgba(50,50,100,0.15); }
-        @keyframes modalIn {
-            from { opacity: 0; transform: scale(0.95) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .modal-box h2 {
-            color: #f7e272;
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-        body.theme-day .modal-box h2 { color: #2a3a6a; }
-        body.theme-night .modal-box h2 { color: #aac0f0; }
-        .modal-box input {
-            background: rgba(10, 18, 40, 0.5);
-            border: 1px solid rgba(60, 85, 140, 0.2);
-            border-radius: 16px;
-            padding: 12px 18px;
-            color: #d6e0f5;
-            font-size: 1rem;
-            width: 100%;
-            margin: 6px 0;
-            transition: 0.3s;
-        }
-        body.theme-day .modal-box input { background: rgba(0,0,0,0.04); color: #1a1a3a; border-color: rgba(0,0,0,0.1); }
-        body.theme-night .modal-box input { background: rgba(10,10,30,0.5); color: #c0c8e8; border-color: rgba(50,50,100,0.15); }
-        .modal-box input:focus {
-            outline: none;
-            border-color: #f7c948;
-            box-shadow: 0 0 20px rgba(247, 201, 72, 0.08);
-        }
-        .modal-box input::placeholder {
-            color: #4f659a;
-        }
-        body.theme-day .modal-box input::placeholder { color: #8a9aaa; }
-        .modal-box .btn-row {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-        .modal-box .btn-row .btn {
-            flex: 1;
-            padding: 10px 20px;
-            border-radius: 60px;
-            border: 1px solid transparent;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            min-width: 80px;
-            text-align: center;
-        }
-        .modal-box .btn-row .btn.primary {
-            background: rgba(60, 180, 80, 0.15);
-            border-color: rgba(60, 180, 80, 0.2);
-            color: #a8d08d;
-        }
-        body.theme-day .modal-box .btn-row .btn.primary { color: #2a7a3a; }
-        .modal-box .btn-row .btn.primary:hover {
-            background: rgba(60, 180, 80, 0.25);
-        }
-        .modal-box .btn-row .btn.secondary {
-            background: rgba(60, 130, 255, 0.12);
-            border-color: rgba(60, 130, 255, 0.2);
-            color: #7aafff;
-        }
-        body.theme-day .modal-box .btn-row .btn.secondary { color: #2a5a9a; }
-        .modal-box .btn-row .btn.secondary:hover {
-            background: rgba(60, 130, 255, 0.2);
-        }
-        .modal-box .btn-row .btn.danger {
-            background: rgba(200, 60, 60, 0.12);
-            border-color: rgba(200, 60, 60, 0.15);
-            color: #ff7a7a;
-        }
-        .modal-box .btn-row .btn.danger:hover {
-            background: rgba(200, 60, 60, 0.2);
-        }
-        .modal-box .btn-row .btn.close {
-            background: rgba(100, 100, 140, 0.12);
-            border-color: rgba(100, 100, 140, 0.12);
-            color: #6a80b5;
-        }
-        .modal-box .btn-row .btn.close:hover {
-            background: rgba(100, 100, 140, 0.2);
-        }
-        .modal-box .status {
-            padding: 8px 0;
-            color: #a8d08d;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .modal-box .status.error {
-            color: #ff6b6b;
-        }
-        .modal-box .theme-select {
-            display: flex;
-            gap: 10px;
-            margin: 10px 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .modal-box .theme-select .theme-btn {
-            padding: 8px 20px;
-            border-radius: 40px;
-            border: 2px solid rgba(60,85,140,0.15);
-            cursor: pointer;
-            transition: 0.3s;
-            background: transparent;
-            color: #6a80b5;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        body.theme-day .modal-box .theme-select .theme-btn { color: #4a5a8a; }
-        .modal-box .theme-select .theme-btn:hover {
-            border-color: #f7c948;
-        }
-        .modal-box .theme-select .theme-btn.active {
-            border-color: #f7c948;
-            background: rgba(247,201,72,0.1);
-            color: #f7e272;
-        }
-        body.theme-day .modal-box .theme-select .theme-btn.active { color: #2a3a6a; }
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(8, 12, 26, 0.95);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(60, 85, 140, 0.12);
-            border-radius: 16px;
-            padding: 14px 28px;
-            color: #d6e0f5;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            font-size: 0.9rem;
-            z-index: 99999;
-            box-shadow: 0 8px 48px rgba(0, 0, 0, 0.5);
-            animation: toastIn 0.3s ease;
-            max-width: 90vw;
-            text-align: center;
-            pointer-events: none;
-        }
-        body.theme-day .toast { background: rgba(255,255,255,0.95); color: #1a1a3a; border-color: rgba(0,0,0,0.1); }
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-        @keyframes toastOut {
-            from { opacity: 1; transform: translateX(-50%) translateY(0); }
-            to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-        }
-        @media (max-width: 680px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-                padding: 16px 20px;
-                border-radius: 40px;
-            }
-            .header-right {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .main-card {
-                padding: 22px 18px;
-                border-radius: 32px;
-            }
-            .intro-block .tagline {
-                font-size: 1.4rem;
-            }
-            .tabs {
-                border-radius: 30px;
-                padding: 3px;
-            }
-            .tab-btn {
-                font-size: 0.8rem;
-                padding: 8px 14px;
-                min-width: 60px;
-            }
-            .links-block {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-            .creators {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .grid-2col {
-                grid-template-columns: 1fr;
-            }
-            .auth-top {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-                border-radius: 32px;
-                padding: 14px 18px;
-            }
-            .auth-top .auth-buttons {
-                justify-content: center;
-            }
-            .modal-box {
-                padding: 24px 18px;
-                max-width: 100%;
-            }
-        }
-        @media (max-width: 420px) {
-            .main-card {
-                padding: 16px 12px;
-            }
-            .card-block {
-                padding: 12px 16px;
-            }
-            .logo {
-                font-size: 1.5rem;
-            }
-        }
         /* ===== СТИЛИ ДЛЯ КОДОВ ===== */
         .codes-grid {
             display: flex;
@@ -1102,182 +752,101 @@
             color: #6a80b5;
             margin-top: 4px;
         }
-        /* ===== СТИЛИ ДЛЯ НОВОСТЕЙ (БЮЛЛЕТЕНЬ) ===== */
-        .news-grid {
-            display: grid;
-            grid-template-columns: 66% 33%;
-            gap: 16px;
+        
+        /* ===== СТИЛИ ДЛЯ БЮЛЛЕТЕНЯ (НОВЫЙ ДИЗАЙН КАК НА САЙТЕ) ===== */
+        .bulletin-tabs {
+            display: flex;
+            gap: 8px;
+            background: rgba(8, 12, 26, 0.4);
+            border-radius: 60px;
+            padding: 4px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(60, 85, 140, 0.12);
+            flex-wrap: wrap;
         }
-        @media (max-width: 700px) {
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
+        body.theme-day .bulletin-tabs { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.08); }
+        body.theme-night .bulletin-tabs { background: rgba(10,10,30,0.4); border-color: rgba(50,50,100,0.15); }
+        .bulletin-tab-btn {
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: none;
+            background: transparent;
+            color: #6a80b5;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
         }
-        .card {
-            padding: 14px 16px;
-            border-bottom: 3px solid rgba(255, 215, 0, 0.2);
-            background: rgba(0, 4, 16, 0.3);
+        .bulletin-tab-btn:hover {
+            color: #aac0f0;
+            background: rgba(60, 85, 140, 0.05);
+        }
+        .bulletin-tab-btn.active {
+            background: rgba(60, 85, 140, 0.15);
+            color: #f7e272;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+        .bulletin-issue-content {
+            display: none;
+            animation: fadeTab 0.3s ease;
+        }
+        .bulletin-issue-content.active {
+            display: block;
+        }
+        
+        /* Стиль для самих постов (как на сайте) */
+        .bulletin-posts-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .bulletin-post {
+            background: rgba(0, 4, 16, 0.2);
             border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(60, 85, 140, 0.1);
             transition: 0.3s;
         }
-        .card:hover {
-            transform: translateY(-2px);
-            background: rgba(0, 8, 24, 0.4);
+        .bulletin-post:hover {
+            transform: translateY(-3px);
             border-color: #f7c948;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
-        .card.full {
-            grid-column: 1 / -1;
+        .bulletin-post-image {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(247, 201, 72, 0.1);
         }
-        .card.warning {
-            background: rgba(255, 60, 60, 0.08);
-            border-left: 6px solid #ff4d4d;
-            border-bottom: 3px solid #ff4d4d;
+        .bulletin-post-content {
+            padding: 24px 26px 28px;
         }
-        .card.grey {
-            background: rgba(30, 40, 70, 0.25);
-        }
-        .card .tag {
-            display: inline-block;
-            font-size: 11px;
+        .bulletin-post-title {
+            font-family: 'Segoe UI', 'Inter', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            padding: 2px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-            background: rgba(255, 215, 0, 0.15);
             color: #f7e272;
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 14px;
+            line-height: 1.2;
         }
-        .card .tag.green { background: rgba(60, 180, 80, 0.15); color: #a8d08d; border-color: rgba(60, 180, 80, 0.1); }
-        .card .tag.orange { background: rgba(255, 160, 50, 0.15); color: #f5b86a; border-color: rgba(255, 160, 50, 0.1); }
-        .card .tag.blue { background: rgba(60, 130, 255, 0.15); color: #7aafff; border-color: rgba(60, 130, 255, 0.1); }
-        .card .tag.purple { background: rgba(180, 80, 255, 0.15); color: #c88aff; border-color: rgba(180, 80, 255, 0.1); }
-        .card h2 {
-            font-family: 'Luckiest Guy', cursive;
-            font-size: 22px;
-            color: #e8f0ff;
-            margin: 0 0 4px;
-            letter-spacing: 0.3px;
-        }
-        .card .author {
-            font-size: 14px;
-            font-weight: 700;
-            font-style: italic;
-            color: #7a90b5;
-            margin-bottom: 8px;
-        }
-        .card p {
-            font-size: 15px;
+        body.theme-day .bulletin-post-title { color: #2a3a6a; }
+        body.theme-night .bulletin-post-title { color: #aac0f0; }
+        .bulletin-post-text {
+            font-size: 1rem;
             line-height: 1.7;
             color: #b8caf0;
         }
-        .card img {
-            width: 100%;
-            display: block;
-            margin: 8px 0 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(60, 85, 140, 0.15);
-            background: rgba(0, 0, 0, 0.2);
+        body.theme-day .bulletin-post-text { color: #3a4a6a; }
+        body.theme-night .bulletin-post-text { color: #8a9aaa; }
+        .bulletin-post-text strong {
+            color: #f0db8a;
         }
-        .footer-note {
-            grid-column: 1 / -1;
-            text-align: center;
-            font-size: 16px;
-            padding: 14px 0 4px;
-            border-top: 2px solid rgba(60, 85, 140, 0.1);
-            margin-top: 16px;
-            font-style: italic;
-            color: #6a80b5;
-        }
-        /* ===== НАСТРОЙКИ ВКЛАДКА ===== */
-        .settings-section {
-            margin: 10px 0 20px;
-            padding: 16px 20px;
-            background: rgba(0, 4, 16, 0.2);
-            border-radius: 24px;
-            border: 1px solid rgba(60, 85, 140, 0.08);
-        }
-        .settings-section label {
-            color: #8aa0d0;
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .settings-section input {
-            background: rgba(10, 18, 40, 0.5);
-            border: 1px solid rgba(60, 85, 140, 0.2);
-            border-radius: 16px;
-            padding: 10px 16px;
-            color: #d6e0f5;
-            font-size: 0.95rem;
-            width: 100%;
-            max-width: 280px;
-            transition: 0.3s;
-        }
-        body.theme-day .settings-section input { background: rgba(0,0,0,0.04); color: #1a1a3a; border-color: rgba(0,0,0,0.1); }
-        body.theme-night .settings-section input { background: rgba(10,10,30,0.5); color: #c0c8e8; border-color: rgba(50,50,100,0.15); }
-        .settings-section input:focus {
-            outline: none;
-            border-color: #f7c948;
-            box-shadow: 0 0 20px rgba(247, 201, 72, 0.08);
-        }
-        .settings-section .theme-select {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-        .settings-section .theme-select .theme-btn {
-            padding: 8px 20px;
-            border-radius: 40px;
-            border: 2px solid rgba(60,85,140,0.15);
-            cursor: pointer;
-            transition: 0.3s;
-            background: transparent;
-            color: #6a80b5;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        body.theme-day .settings-section .theme-select .theme-btn { color: #4a5a8a; }
-        .settings-section .theme-select .theme-btn:hover {
-            border-color: #f7c948;
-        }
-        .settings-section .theme-select .theme-btn.active {
-            border-color: #f7c948;
-            background: rgba(247,201,72,0.1);
-            color: #f7e272;
-        }
-        body.theme-day .settings-section .theme-select .theme-btn.active { color: #2a3a6a; }
-        .settings-section .hint {
-            font-size: 0.7rem;
-            color: #4f659a;
-            margin-top: 4px;
-        }
-        .settings-section .btn-save {
-            padding: 10px 28px;
-            border-radius: 60px;
-            border: 1px solid rgba(60, 180, 80, 0.2);
-            background: rgba(60, 180, 80, 0.12);
-            color: #a8d08d;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
-        .settings-section .btn-save:hover {
-            background: rgba(60, 180, 80, 0.2);
-        }
-        .settings-status {
-            padding: 8px 0;
-            color: #a8d08d;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        .settings-status.error {
-            color: #ff6b6b;
-        }
+        body.theme-day .bulletin-post-text strong { color: #2a3a7a; }
+        body.theme-night .bulletin-post-text strong { color: #aac0f0; }
 
         /* ===== СТИЛИ ДЛЯ ВКЛАДКИ UPDATE ===== */
         .update-container {
@@ -1302,13 +871,6 @@
             color: #aac0f0;
             max-width: 600px;
             margin-bottom: 20px;
-        }
-        .update-image {
-            max-width: 100%;
-            border-radius: 24px;
-            border: 2px solid rgba(60, 85, 140, 0.2);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
-            margin-bottom: 30px;
         }
         .countdown-box {
             background: rgba(10, 18, 40, 0.6);
@@ -1376,6 +938,9 @@
             .countdown-grid { gap: 6px; }
             .countdown-number { font-size: 2rem; }
             .countdown-box { padding: 16px; }
+            
+            .bulletin-post-title { font-size: 1.3rem; }
+            .bulletin-post-content { padding: 16px 16px 20px; }
         }
     </style>
 </head>
@@ -1413,33 +978,18 @@
                 <a href="https://www.roblox.com/communities/599180268/Starry-Horizons-Community#!/about" target="_blank" class="badge badge-community">🌐 Community</a>
                 <a href="https://www.roblox.com/games/137646999386122/Starry-Horizons" target="_blank" class="badge badge-play">▶ Play</a>
                 <span class="badge badge-age">13+</span>
-                <span class="sync-status" id="syncStatus">● synced</span>
             </div>
         </header>
-
-        <div class="auth-top" id="authTop">
-            <div class="user-info" id="userInfo">
-                <span style="color:#6a80b5;">👤</span>
-                <span class="username" id="displayUsername">Guest</span>
-                <span class="tag-badge" id="displayTag" style="display:none;"></span>
-            </div>
-            <div class="auth-buttons" id="authButtons">
-                <button class="btn login" id="showLoginBtn">🔓 Login</button>
-                <button class="btn register" id="showRegisterBtn">📝 Register</button>
-                <button class="btn logout" id="logoutBtn" style="display:none;">🚪 Logout</button>
-            </div>
-        </div>
 
         <div class="tabs">
             <button class="tab-btn" data-tab="home">🏠 Home</button>
             <button class="tab-btn active" data-tab="update">🚀 Update</button>
             <button class="tab-btn" data-tab="bulletin">📰 Bulletin</button>
-            <button class="tab-btn" data-tab="settings">⚙️ Settings</button>
         </div>
 
         <main class="main-card">
 
-            <!-- ===== TAB: UPDATE (НОВАЯ ВКЛАДКА) ===== -->
+            <!-- ===== TAB: UPDATE ===== -->
             <div class="tab-content active" id="tab-update">
                 <div class="update-container">
                     <h1 class="update-title">🪐 NEXT UPDATE</h1>
@@ -1638,112 +1188,101 @@
 
             </div>
 
-            <!-- ===== TAB: BULLETIN ===== -->
+            <!-- ===== TAB: BULLETIN (НОВОЕ СТРОЕНИЕ: КАРТИНКА -> ЗАГОЛОВОК -> ТЕКСТ) ===== -->
             <div class="tab-content" id="tab-bulletin">
 
                 <div class="intro-block" style="border-bottom-color: rgba(255,215,0,0.15);">
-                    <div class="tagline" style="font-size:1.6rem;">Bulletin #1 - What's Happening</div>
-                    <div class="sub">...</div>
+                    <div class="tagline" style="font-size:1.6rem;">Game Bulletin</div>
+                    <div class="sub">Stay up to date with all the latest news and updates from Starry Horizons.</div>
                 </div>
 
-                <div class="news-grid">
+                <!-- Внутренние табы для Бюллетеня -->
+                <div class="bulletin-tabs">
+                    <button class="bulletin-tab-btn active" data-bulletin-tab="issue1">#1 What's Happening</button>
+                    <button class="bulletin-tab-btn" data-bulletin-tab="issue2">#2 World's</button>
+                </div>
 
-                    <div class="card full warning">
-                        <span class="tag orange">🔥 BREAKING NEWS</span>
-                        <h2>New Season — "Cosmic Awakening"</h2>
-                        <div class="author">By Starry Game's or Nodgia</div>
-                        <img src="https://i.pinimg.com/originals/6c/79/3e/6c793e8f6a9fe84356dd0f5929669a91.jpg?nii=t" alt="New Season">
-                        <p>
-                            <strong>The biggest update in game history!</strong><br><br>
-                            We're proud to introduce the new season <strong>"Cosmic Awakening"</strong>. Players can expect:
-                            <br>• 5 NPC characters with unique dialogues
-                            <br>• New Space Location
-                            <br>• Over 10 new items and secrets
-                            <br><br>
-                            The season starts <strong>Augusta *#</strong>. Don't miss the exclusive rewards!
-                        </p>
-                    </div>
+                <!-- Выпуск 1 -->
+                <div class="bulletin-issue-content active" id="bulletin-issue1">
+                    <div class="bulletin-posts-vertical">
+                        <!-- Пост 1 -->                 
+                        <div class="bulletin-post">
+                            <img class="bulletin-post-image" src="https://cdn.shopify.com/s/files/1/0830/7635/0259/files/Bird.png" alt="New Epic Boss">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">◼︎ Dark Wanderer</h2>
+                                <div class="bulletin-post-text">
+                                    <p>A dark figure was spotted on Otroven, immediately dubbed the Dark Page.</p>
+                                    <p>He's searching for fragments of some strange artifact and wanders the islands looking for it.</p>
+                                    <p>Everyone thinks he's crazy, although Nodgia thinks he wants to open a portal to other dimensions using the machine he's currently building.</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="card">
-                        <span class="tag green">🆕 UPDATE's</span>
-                        <h2>Patch 2.0.0 — Final Island of World 1</h2>
-                        <div class="author">By Starry Game's or Nodgia</div>
-                        <p>
-                            <br>• New Sword's
-                            <br>• New Big Island
-                            <br>• New Max Lvl
-                            <br>• New NPC
-                            <br>• New Rain System
-                        </p>
-                    </div>
 
-                    <div class="card grey">
-                        <span class="tag blue">🏆 EVENT's </span>
-                        <h2>Blood Event</h2>
-                        <div class="author">By Starry Game's or Nodgia</div>
-                        <img src="https://i.oneme.ru/i?r=BUE2sh_eZW7g8kugOdIm2NotoriEnn0UuV_0VeuE_-zuHXOQmtX_z84phu9WsO9R26y-lVzsyQysV3DaVqjHCp2E&expires=1784079313168" alt="Tournament">
-                        <p>
-                            <br>• New Sword's
-                            <br>• New Spin Wheel 
-                            <br>• New Blood Moon Event
-                        </p>
-                    </div>
+                        <!-- Пост 2 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">📜 Legend's</h2>
+                                <div class="bulletin-post-text">
+                                    <p><strong>Legend : How the portal to the spirit world opened</strong>.</p>
+                                    <p>Long ago, Master Daigo created the Mask of Destruction that could destroy the entire world, but to protect people,
+                                     he used it to open a portal to the spirit world and made a deal with the Spirit King himself that Daigo would become his pawn in exchange for the King keeping the Mask for the rest of his life.</p>
+                                    <p><br>You will find out the continuation of this story on <strong>August 2nd</strong></p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="card">
-                        <span class="tag purple">🎨 ADMIN NEWS</span>
-                        <h2>THE NEW ADMIN IN STARRY HORIZONS</h2>
-                        <div class="author">By Starry Game's or Nodgia</div>
-                        <img src="https://i.oneme.ru/i?r=BUE2sh_eZW7g8kugOdIm2Note6kulR3kZImtzuQB01SuAmD_DXHTPuYTNA25Yxf8CgO-lVzsyQysV3DaVqjHCp2E&expires=1784063789654" alt="Contest">
-                        <p>
-                           🎉 NEW ADMINISTRATOR! 🎉<br>
-                           We're excited to announce a new admin has joined our team!<br>
-                           <strong>Welcome: ⚡ PEHAL_1234 ⚡</strong><br>
-                           PEHAL_1234 will be hosting <strong>ADMINISTRATOR ABUSE EVENTS</strong> along with our current admin team of me (<strong>@dev_nodgia</strong>) and <strong>@ps_tonmai</strong><br>
-                           <br>
-                           <strong>What to expect at the Admin Abuse sessions:</strong><br>
-                           🔥 Crazy Event appearances<br>
-                           🎁 Random prize draws<br>
-                           🤣 Fun admin teams<br>
-                           💥 Code giveaways<br>
-                           <br>
-                           <strong>Design contest for the best character skin!</strong><br>
-                           <strong>Grand prize</strong> — 50,000 currency.<br>
-                           Submissions due <strong>July 25</strong>.<br>
-                           <br>
-                           Thanks for reading 🔥🔥🔥
-                        </p>
-                    </div>
-
-                    <div class="card full warning">
-                        <span class="tag orange">⚡ COMING SOON</span>
-                        <h2>New PVP Mode</h2>
-                        <div class="author">By Starry Game's or Nodgia</div>
-                        <p>
-                            Loading....
-                        </p>
-                    </div>
-
-                    <div class="card full" style="border-bottom: none; background: rgba(0,4,16,0.15);">
-                        <div class="tag-group">
-                            <span class="tag">RPG</span>
-                            <span class="tag">Sword</span>
-                            <span class="tag">Star</span>
-                            <span class="tag">Horizons</span>
-                            <span class="tag">Event</span>
-                            <span class="tag">Open World</span>
-                            <span class="tag">Multiplayer</span>
-                            <span class="tag">Adventure</span>
+                        <!-- Пост 3 -->
+                        <div class="bulletin-post">
+                                <h2 class="bulletin-post-title">Error... Player.blood</h2>
+                                <div class="bulletin-post-text">
+                                 <p><strong>This is not a drill.</strong></p>
+                                 <p>Errrrrrrrorrr....</p>
+                                 <p>Stabilization of the post.... </p>
+                                 <p><strong>20%</strong></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="footer-note">
-                        ✦ Follow us on Discord and X ✦<br>
-                        <span style="font-size:14px; color:#4f659a;">Issue #001</span>
-                    </div>
-
                 </div>
 
-                <div class="meta-line">
+                <!-- Выпуск 2 -->
+                <div class="bulletin-issue-content" id="bulletin-issue2">
+                    <div class="bulletin-posts-vertical">
+                        <!-- Пост 1 -->
+                        <div class="bulletin-post">
+                            <img class="bulletin-post-image" src="https://cdn.shopify.com/s/files/1/0830/7635/0259/files/LightningStorm.png" alt="Mystery Island">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">😈 FINAL! New Epic Boss</h2>
+                                <div class="bulletin-post-text">
+                                    <p>The ultimate challenge awaits! A new Epic Boss has been discovered in the Star Islands. Players must gather their strongest allies to take down this fearsome creature.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Пост 2 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">◼︎ Dark Wanderer</h2>
+                                <div class="bulletin-post-text">
+                                    <p>The Dark Wanderer has recovered the Artifact Shards.
+                                     Now he and his partner, Daigo's son Loki, are brewing a <strong>Stobelizing Material</strong> for this artifact.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Пост 3 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">🚀 Update 2.0 — FINAL of The 1 World</h2>
+                                <div class="bulletin-post-text">
+                            <p>UPDATE IN : <strong>02.08.26 18:00</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meta-line" style="margin-top: 24px;">
                     <span>⭐ Game Bulletin <span class="heart">❤</span> 2026</span>
                     <span>🚀 "Starry Game's" Community</span>
                     <span>✨ v1.0</span>
@@ -1751,211 +1290,10 @@
 
             </div>
 
-            <!-- ===== TAB: SETTINGS ===== -->
-            <div class="tab-content" id="tab-settings">
-                <div class="section">
-                    <div class="section-title">
-                        <span>⚙️</span> Settings
-                        <span class="accent-line"></span>
-                    </div>
-
-                    <div class="settings-section">
-                        <label>🔑 Change Password</label>
-                        <input type="password" id="settingsNewPassword" placeholder="New password (min 4 chars)">
-                        <div class="hint">Enter a new password (at least 4 characters)</div>
-                    </div>
-
-                    <div class="settings-section">
-                        <label>🏷️ Change Tag</label>
-                        <input type="text" id="settingsNewTag" placeholder="e.g. NG, VIP, STAR" style="text-transform:uppercase; max-width:200px;">
-                        <div class="hint">⚠️ Tag must be unique! Max 6 characters. Cannot be taken by another user.</div>
-                    </div>
-
-                    <div class="settings-section">
-                        <label>🎨 Theme</label>
-                        <div class="theme-select" id="settingsThemeSelect">
-                            <button class="theme-btn active" data-theme="space">🌌 Space</button>
-                            <button class="theme-btn" data-theme="day">☀️ Day</button>
-                            <button class="theme-btn" data-theme="night">🌙 Night</button>
-                        </div>
-                    </div>
-
-                    <div class="settings-status" id="settingsStatus"></div>
-                    <button class="btn-save" id="settingsSaveBtn">💾 Save Settings</button>
-                </div>
-            </div>
-
         </main>
-
-        <div style="text-align: center; font-size: 0.8rem; color: #f7e272; margin-top: 12px; letter-spacing: 0.5px; opacity: 0.9; padding: 10px 0;">
-            ⭐ Starry Horizons — Official Game Website ⭐
-        </div>
-
-    </div>
-
-    <!-- ===== МОДАЛЬНЫЕ ОКНА ===== -->
-
-    <!-- Логин -->
-    <div class="modal-overlay" id="loginModal">
-        <div class="modal-box">
-            <h2>🔓 Login</h2>
-            <input type="text" id="loginUsername" placeholder="👤 Username">
-            <input type="password" id="loginPassword" placeholder="🔑 Password">
-            <div class="status" id="loginStatus"></div>
-            <div class="btn-row">
-                <button class="btn primary" id="loginSubmitBtn">🔓 Login</button>
-                <button class="btn close" id="loginCloseBtn">✕ Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Регистрация -->
-    <div class="modal-overlay" id="registerModal">
-        <div class="modal-box">
-            <h2>📝 Register</h2>
-            <input type="text" id="registerUsername" placeholder="👤 Username (min 3 chars)">
-            <input type="password" id="registerPassword" placeholder="🔑 Password (min 4 chars)">
-            <div class="status" id="registerStatus"></div>
-            <div class="btn-row">
-                <button class="btn secondary" id="registerSubmitBtn">📝 Register</button>
-                <button class="btn close" id="registerCloseBtn">✕ Close</button>
-            </div>
-        </div>
     </div>
 
     <script>
-        // ================================================================
-        //  ЗАЩИТА КОНСОЛИ
-        // ================================================================
-
-        (function consoleProtection() {
-            var devtools = /./;
-            devtools.toString = function() {
-                console.log('%c⚠️ WARNING! ⚠️', 'font-size: 30px; font-weight: bold; color: red;');
-                console.log('%c🔒 Console access is monitored!', 'font-size: 18px; color: orange;');
-                console.log('%c🚫 Any attempts to hack or steal data will result in an IMMEDIATE BAN!', 'font-size: 16px; color: #ff6b6b;');
-                console.log('%c👮 Your IP and activity are being logged.', 'font-size: 14px; color: #ffd93d;');
-                console.log('%c💀 STOP right now or you will be BANNED PERMANENTLY!', 'font-size: 20px; font-weight: bold; color: red;');
-                console.log('%c🔥 Starry Horizons Security Team 🔥', 'font-size: 14px; color: #6bcbff;');
-                return '';
-            };
-        })();
-
-        // ================================================================
-        //  ШИФРОВАНИЕ
-        // ================================================================
-
-        const SECRET_KEY = "StarryHorizons2026UltraSecureKey!@#$%^&*()_+";
-
-        function encryptData(data) {
-            try {
-                let str = JSON.stringify(data);
-                str = str.split('').reverse().join('');
-                let encrypted = '';
-                for (let i = 0; i < str.length; i++) {
-                    const charCode = str.charCodeAt(i);
-                    const shift = SECRET_KEY.charCodeAt(i % SECRET_KEY.length) % 25 + 7;
-                    encrypted += String.fromCharCode(charCode + shift);
-                }
-                return btoa(btoa(encrypted));
-            } catch (e) {
-                return btoa(btoa(JSON.stringify(data)));
-            }
-        }
-
-        function decryptData(encryptedData) {
-            try {
-                let decoded = atob(atob(encryptedData));
-                let decrypted = '';
-                for (let i = 0; i < decoded.length; i++) {
-                    const charCode = decoded.charCodeAt(i);
-                    const shift = SECRET_KEY.charCodeAt(i % SECRET_KEY.length) % 25 + 7;
-                    decrypted += String.fromCharCode(charCode - shift);
-                }
-                decrypted = decrypted.split('').reverse().join('');
-                return JSON.parse(decrypted);
-            } catch (e) {
-                return {};
-            }
-        }
-
-        // ================================================================
-        //  РАБОТА С ДАННЫМИ
-        // ================================================================
-
-        function getUsers() {
-            try {
-                const raw = localStorage.getItem('starryUsers_encrypted');
-                if (!raw) return {};
-                const decrypted = decryptData(raw);
-                if (typeof decrypted === 'object' && decrypted !== null) {
-                    return decrypted;
-                }
-                return {};
-            } catch (e) {
-                return {};
-            }
-        }
-
-        function saveUsers(users) {
-            try {
-                if (typeof users !== 'object') return;
-                localStorage.setItem('starryUsers_encrypted', encryptData(users));
-            } catch (e) {}
-        }
-
-        function getCurrentUser() {
-            try {
-                const raw = localStorage.getItem('starryCurrentUser_encrypted');
-                if (!raw) return null;
-                const decrypted = decryptData(raw);
-                if (typeof decrypted === 'string' && decrypted.length > 0) {
-                    return decrypted;
-                }
-                return null;
-            } catch (e) {
-                return null;
-            }
-        }
-
-        function setCurrentUser(username) {
-            try {
-                if (username && typeof username === 'string' && username.length > 0) {
-                    localStorage.setItem('starryCurrentUser_encrypted', encryptData(username));
-                    currentUser = username;
-                } else {
-                    localStorage.removeItem('starryCurrentUser_encrypted');
-                    currentUser = null;
-                }
-                updateUI();
-            } catch (e) {
-                if (username) {
-                    localStorage.setItem('starryCurrentUser_encrypted', btoa(btoa(JSON.stringify(username))));
-                    currentUser = username;
-                } else {
-                    localStorage.removeItem('starryCurrentUser_encrypted');
-                    currentUser = null;
-                }
-                updateUI();
-            }
-        }
-
-        function getTheme() {
-            try {
-                return localStorage.getItem('starryTheme') || 'space';
-            } catch (e) { return 'space'; }
-        }
-
-        function setTheme(theme) {
-            try {
-                localStorage.setItem('starryTheme', theme);
-                document.body.className = 'theme-' + theme;
-                document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.theme === theme);
-                });
-            } catch (e) {}
-        }
-
         // ================================================================
         //  КОСМИЧЕСКИЙ ФОН
         // ================================================================
@@ -2108,244 +1446,7 @@
         function renderAll() {
             renderCodes();
             renderAnnouncements();
-            updateUI();
         }
-
-        // ================================================================
-        //  AUTH SYSTEM
-        // ================================================================
-
-        let currentUser = null;
-
-        function updateUI() {
-            const displayName = document.getElementById('displayUsername');
-            const displayTag = document.getElementById('displayTag');
-            const logoutBtn = document.getElementById('logoutBtn');
-            const loginBtn = document.getElementById('showLoginBtn');
-            const registerBtn = document.getElementById('showRegisterBtn');
-
-            if (currentUser) {
-                const users = getUsers();
-                const userData = users[currentUser] || {};
-                const tag = userData.tag || '';
-                
-                displayName.textContent = currentUser;
-                displayName.style.color = '#f5e27a';
-                
-                if (tag) {
-                    displayTag.textContent = '[' + tag + ']';
-                    displayTag.style.display = 'inline-block';
-                } else {
-                    displayTag.style.display = 'none';
-                }
-                
-                logoutBtn.style.display = 'inline-block';
-                loginBtn.style.display = 'none';
-                registerBtn.style.display = 'none';
-            } else {
-                displayName.textContent = 'Guest';
-                displayName.style.color = '#6a80b5';
-                displayTag.style.display = 'none';
-                logoutBtn.style.display = 'none';
-                loginBtn.style.display = 'inline-block';
-                registerBtn.style.display = 'inline-block';
-            }
-        }
-
-        function showModal(id) { document.getElementById(id).classList.add('show'); }
-        function hideModal(id) { document.getElementById(id).classList.remove('show'); }
-
-        // ---- ЛОГИН ----
-        document.getElementById('showLoginBtn').addEventListener('click', () => showModal('loginModal'));
-        document.getElementById('loginCloseBtn').addEventListener('click', () => hideModal('loginModal'));
-        document.getElementById('loginModal').addEventListener('click', function(e) {
-            if (e.target === this) hideModal('loginModal');
-        });
-
-        document.getElementById('loginSubmitBtn').addEventListener('click', function() {
-            const username = document.getElementById('loginUsername').value.trim();
-            const password = document.getElementById('loginPassword').value.trim();
-            const status = document.getElementById('loginStatus');
-
-            if (!username || !password) {
-                status.textContent = '❌ Fill in all fields!';
-                status.className = 'status error';
-                return;
-            }
-
-            const users = getUsers();
-            let foundUser = null;
-            let foundKey = null;
-            for (let key in users) {
-                if (key.toLowerCase() === username.toLowerCase()) {
-                    foundUser = users[key];
-                    foundKey = key;
-                    break;
-                }
-            }
-
-            if (!foundUser) {
-                status.textContent = '❌ User not found! Please register.';
-                status.className = 'status error';
-                return;
-            }
-
-            if (foundUser.password !== password) {
-                status.textContent = '❌ Wrong password!';
-                status.className = 'status error';
-                return;
-            }
-
-            setCurrentUser(foundKey);
-            status.textContent = `✅ Welcome back, ${foundKey}!`;
-            status.className = 'status';
-            document.getElementById('loginUsername').value = '';
-            document.getElementById('loginPassword').value = '';
-            setTimeout(() => hideModal('loginModal'), 800);
-        });
-
-        // ---- РЕГИСТРАЦИЯ ----
-        document.getElementById('showRegisterBtn').addEventListener('click', () => showModal('registerModal'));
-        document.getElementById('registerCloseBtn').addEventListener('click', () => hideModal('registerModal'));
-        document.getElementById('registerModal').addEventListener('click', function(e) {
-            if (e.target === this) hideModal('registerModal');
-        });
-
-        document.getElementById('registerSubmitBtn').addEventListener('click', function() {
-            const username = document.getElementById('registerUsername').value.trim();
-            const password = document.getElementById('registerPassword').value.trim();
-            const status = document.getElementById('registerStatus');
-
-            if (!username || !password) {
-                status.textContent = '❌ Fill in all fields!';
-                status.className = 'status error';
-                return;
-            }
-            if (username.length < 3) {
-                status.textContent = '❌ Username must be at least 3 characters!';
-                status.className = 'status error';
-                return;
-            }
-            if (password.length < 4) {
-                status.textContent = '❌ Password must be at least 4 characters!';
-                status.className = 'status error';
-                return;
-            }
-
-            const users = getUsers();
-            for (let key in users) {
-                if (key.toLowerCase() === username.toLowerCase()) {
-                    status.textContent = '❌ Username already exists! Please login.';
-                    status.className = 'status error';
-                    return;
-                }
-            }
-
-            users[username] = { password: password, tag: null };
-            saveUsers(users);
-            status.textContent = '✅ Registration successful! You can now login.';
-            status.className = 'status';
-            document.getElementById('registerUsername').value = '';
-            document.getElementById('registerPassword').value = '';
-            setTimeout(() => hideModal('registerModal'), 800);
-        });
-
-        // ---- ЛОГАУТ ----
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            setCurrentUser(null);
-            showToast('👋 Logged out');
-        });
-
-        // ---- ЗАГРУЗКА ПОЛЬЗОВАТЕЛЯ ----
-        const savedUser = getCurrentUser();
-        if (savedUser) {
-            const users = getUsers();
-            if (users[savedUser]) {
-                currentUser = savedUser;
-            } else {
-                setCurrentUser(null);
-            }
-        }
-        updateUI();
-
-        // ================================================================
-        //  SETTINGS (ВКЛАДКА)
-        // ================================================================
-
-        const savedTheme = getTheme();
-        document.body.className = 'theme-' + savedTheme;
-        document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.theme === savedTheme);
-        });
-
-        document.querySelectorAll('#settingsThemeSelect .theme-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const theme = this.dataset.theme;
-                setTheme(theme);
-            });
-        });
-
-        document.getElementById('settingsSaveBtn').addEventListener('click', function() {
-            const newPass = document.getElementById('settingsNewPassword').value.trim();
-            const newTag = document.getElementById('settingsNewTag').value.trim().toUpperCase();
-            const status = document.getElementById('settingsStatus');
-
-            if (!newPass && !newTag) {
-                status.textContent = '❌ Enter at least one field!';
-                status.className = 'settings-status error';
-                return;
-            }
-
-            const users = getUsers();
-            const oldName = currentUser;
-
-            if (!oldName) {
-                status.textContent = '❌ You must be logged in!';
-                status.className = 'settings-status error';
-                return;
-            }
-
-            if (newPass) {
-                if (newPass.length < 4) {
-                    status.textContent = '❌ Password must be at least 4 characters!';
-                    status.className = 'settings-status error';
-                    return;
-                }
-                users[oldName].password = newPass;
-            }
-
-            if (newTag) {
-                if (newTag.length > 6) {
-                    status.textContent = '❌ Tag max 6 characters!';
-                    status.className = 'settings-status error';
-                    return;
-                }
-                let tagTaken = false;
-                for (let key in users) {
-                    if (key !== oldName && users[key].tag && users[key].tag.toUpperCase() === newTag) {
-                        tagTaken = true;
-                        break;
-                    }
-                }
-                if (tagTaken) {
-                    status.textContent = '❌ Tag "' + newTag + '" is already taken!';
-                    status.className = 'settings-status error';
-                    return;
-                }
-                users[oldName].tag = newTag || null;
-            }
-
-            saveUsers(users);
-            status.textContent = '✅ Settings saved successfully!';
-            status.className = 'settings-status';
-            document.getElementById('settingsNewPassword').value = '';
-            document.getElementById('settingsNewTag').value = '';
-            updateUI();
-            setTimeout(() => {
-                status.textContent = '';
-                status.className = 'settings-status';
-            }, 3000);
-        });
 
         // ================================================================
         //  TABS
@@ -2358,6 +1459,20 @@
                 const tabId = this.dataset.tab;
                 document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
                 document.getElementById('tab-' + tabId).classList.add('active');
+            });
+        });
+
+        // ================================================================
+        //  ВНУТРЕННИЕ ТАБЫ БЮЛЛЕТЕНЯ
+        // ================================================================
+
+        document.querySelectorAll('.bulletin-tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.bulletin-tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const tabId = this.dataset.bulletinTab;
+                document.querySelectorAll('.bulletin-issue-content').forEach(tc => tc.classList.remove('active'));
+                document.getElementById('bulletin-' + tabId).classList.add('active');
             });
         });
 
@@ -2380,10 +1495,10 @@
                 return;
             }
 
-const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById('days').textContent = String(days).padStart(2, '0');
             document.getElementById('hours').textContent = String(hours).padStart(2, '0');
@@ -2395,34 +1510,12 @@ const seconds = Math.floor((diff % (1000 * 60)) / 1000);
         setInterval(updateCountdown, 1000);
 
         // ================================================================
-        //  TOAST
-        // ================================================================
-
-        function showToast(message) {
-            const old = document.querySelector('.toast');
-            if (old) old.remove();
-
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.textContent = message;
-            document.body.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.animation = 'toastOut 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            }, 2500);
-        }
-
-        // ================================================================
         //  INIT
         // ================================================================
 
         loadData();
 
         console.log('✅ Starry Horizons system loaded successfully');
-        console.log('🔒 All data is encrypted and protected');
-        console.log('👮 Security active — console is monitored');
-        console.log('📋 Tabs: Update, Home, Bulletin, Settings');
     </script>
 
 </body>
