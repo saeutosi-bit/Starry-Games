@@ -15,7 +15,7 @@
             justify-content: center;
             overflow-x: hidden;
             position: relative;
-            transition: background 1s ease, color 0.5s;
+            transition: background 0.5s, color 0.5s;
         }
         body.theme-space {
             background: #05080f;
@@ -39,7 +39,6 @@
         body.theme-day .card-block { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.08); }
         body.theme-night .card-block { background: rgba(0,0,0,0.3); border-color: rgba(50,50,100,0.15); }
         
-        /* Базовый космический фон (для вкладок Home, Update, Games) */
         .space-bg {
             position: fixed;
             top: 0;
@@ -49,7 +48,6 @@
             z-index: 0;
             overflow: hidden;
             pointer-events: none;
-            transition: opacity 1s ease;
         }
         body.theme-day .space-bg { display: none; }
         body.theme-night .space-bg { display: none; }
@@ -855,9 +853,31 @@
             border-color: rgba(150, 50, 255, 0.2);
         }
 
-        /* --- СТИЛЬ ДЛЯ ВЫПУСКА #3 (Хакерский/Зелёный) --- */
-        /* Стили хакерского выпуска уже были в вашем коде, я их оставил. 
-           Добавил класс .issue-3, чтобы можно было легко идентифицировать. */
+        /* --- СТИЛЬ ДЛЯ ВЫПУСКА #4 (Героический/Светлый/Золотой) --- */
+        .issue-4 .bulletin-post {
+            background: rgba(20, 30, 50, 0.4);
+            border-color: rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.05);
+        }
+        .issue-4 .bulletin-post:hover {
+            border-color: #f7e272;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+        }
+        .issue-4 .bulletin-post-title {
+            color: #f7e272;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+        body.theme-day .issue-4 .bulletin-post-title { color: #2a6a3a; }
+        .issue-4 .bulletin-post-text {
+            color: #e8e0c0;
+        }
+        .issue-4 .bulletin-post-text strong {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .issue-4 .bulletin-post-image {
+            border-color: rgba(255, 215, 0, 0.2);
+        }
 
         /* ===== STYLES FOR UPDATE TAB ===== */
         .update-container {
@@ -1142,7 +1162,7 @@
             margin-top: 30px;
             border-top: 2px solid rgba(0, 255, 0, 0.3);
             border-bottom: 2px solid rgba(0, 255, 0, 0.3);
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             padding: 10px 0 20px;
             box-shadow: 0 0 50px rgba(0, 255, 0, 0.05);
             position: relative;
@@ -1298,9 +1318,129 @@
             color: #00ff00 !important;
             background: rgba(0, 255, 0, 0.15) !important;
         }
+
+        /* ===== LOADING SCREEN ===== */
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #05080f;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+            opacity: 1;
+            visibility: visible;
+            overflow: hidden;
+        }
+        #loadingScreen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        /* Контейнер для анимации */
+        .loader-animation-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding-bottom: 40px;
+        }
+
+        /* Буквы S и G — вылетают из нижних углов */
+        .loader-letter {
+            position: absolute;
+            bottom: 0px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: #f7e272;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+            opacity: 0;
+        }
+        .loader-letter.left {
+            left: 0px;
+            animation: letterSpawnLeft 2.2s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+        }
+        .loader-letter.right {
+            right: 0px;
+            animation: letterSpawnRight 2.2s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes letterSpawnLeft {
+            0% { opacity: 0; transform: translateY(20px) rotate(-40deg) scale(0.3); bottom: 0px; left: 0px; }
+            40% { opacity: 1; transform: translateY(-60px) rotate(0deg) scale(1.1); bottom: 10px; left: 5%; }
+            100% { opacity: 0; transform: translateY(-80px) rotate(0deg) scale(0.5); bottom: 20px; left: 15%; }
+        }
+        @keyframes letterSpawnRight {
+            0% { opacity: 0; transform: translateY(20px) rotate(40deg) scale(0.3); bottom: 0px; right: 0px; }
+            40% { opacity: 1; transform: translateY(-60px) rotate(0deg) scale(1.1); bottom: 10px; right: 5%; }
+            100% { opacity: 0; transform: translateY(-80px) rotate(0deg) scale(0.5); bottom: 20px; right: 15%; }
+        }
+
+        /* Название игры и иконка (появляются ПОСЛЕ исчезновения букв) */
+        .loader-icon-final {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+            opacity: 0;
+            animation: iconReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 2.5s;
+        }
+        @keyframes iconReveal {
+            0% { opacity: 0; transform: translateX(-50%) scale(0) rotate(0deg); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1) rotate(360deg); }
+        }
+        .loader-title {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.5);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #f7e272;
+            letter-spacing: 4px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+            opacity: 0;
+            animation: titleReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 2.8s;
+            white-space: nowrap;
+        }
+        @keyframes titleReveal {
+            0% { opacity: 0; transform: translateX(-50%) scale(0.3) translateY(20px); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1) translateY(0px); }
+        }
     </style>
 </head>
 <body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loadingScreen">
+        <div class="loader-animation-container">
+            <!-- Буква S (вылетает из левого нижнего угла) -->
+            <div class="loader-letter left">S</div>
+            <!-- Буква G (вылетает из правого нижнего угла) -->
+            <div class="loader-letter right">G</div>
+            <!-- Финальная картинка (появляется после исчезновения букв) -->
+            <img class="loader-icon-final" 
+                 src="https://i.oneme.ru/i?r=BUE2sh_eZW7g8kugOdIm2Not7Mv3X3qGmT5BSgJhZuLjkjVeJAGx8R8H32DRH8-vz_K-lVzsyQysV3DaVqjHCp2E&expires=1785712333025" 
+                 alt="Game Icon">
+            <!-- Название игры (появляется снизу) -->
+            <div class="loader-title">Starry Horizons</div>
+        </div>
+    </div>
 
     <!-- Matrix Rain Canvas -->
     <canvas id="matrixCanvas"></canvas>
@@ -1341,50 +1481,16 @@
         </header>
 
         <div class="tabs">
-            <button class="tab-btn" data-tab="home">🏠 Home</button>
-            <button class="tab-btn active" data-tab="update">🚀 Update</button>
+            <button class="tab-btn active" data-tab="home">🏠 Home</button>
+            <button class="tab-btn" data-tab="update">🚀 Update</button>
             <button class="tab-btn" data-tab="bulletin">📰 Bulletin</button>
             <button class="tab-btn" data-tab="games">🎮 Mini-Games</button>
         </div>
 
         <main class="main-card">
 
-            <!-- ===== TAB: UPDATE ===== -->
-            <div class="tab-content active" id="tab-update">
-                <div class="update-container">
-                    <h1 class="update-title">🪐 NEXT UPDATE</h1>
-                    <p class="update-description">
-                     Info is Coming<br>
-                    </p>               
-                    <div class="countdown-box">
-                        <div class="countdown-label">⏳ Launch Countdown</div>
-                        <div class="countdown-grid" id="countdownGrid">
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="days">00</div>
-                                <div class="countdown-label-small">Days</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="hours">00</div>
-                                <div class="countdown-label-small">Hours</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="minutes">00</div>
-                                <div class="countdown-label-small">Minutes</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="seconds">00</div>
-                                <div class="countdown-label-small">Seconds</div>
-                            </div>
-                        </div>
-                        <div class="countdown-status" id="countdownStatus">
-                            UPDATE 2.0 : <span class="highlight">August 2, 2026 — 6:00 PM</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- ===== TAB: HOME ===== -->
-            <div class="tab-content" id="tab-home">
+            <div class="tab-content active" id="tab-home">
 
                 <div class="intro-block">
                     <div class="tagline">✨ Welcome to the Star Islands</div>
@@ -1548,6 +1654,40 @@
 
             </div>
 
+            <!-- ===== TAB: UPDATE ===== -->
+            <div class="tab-content" id="tab-update">
+                <div class="update-container">
+                    <h1 class="update-title">🪐 NEXT UPDATE</h1>
+                    <p class="update-description">
+                     Info is Coming<br>
+                    </p>               
+                    <div class="countdown-box">
+                        <div class="countdown-label">⏳ Launch Countdown</div>
+                        <div class="countdown-grid" id="countdownGrid">
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="days">00</div>
+                                <div class="countdown-label-small">Days</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="hours">00</div>
+                                <div class="countdown-label-small">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="minutes">00</div>
+                                <div class="countdown-label-small">Minutes</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="seconds">00</div>
+                                <div class="countdown-label-small">Seconds</div>
+                            </div>
+                        </div>
+                        <div class="countdown-status" id="countdownStatus">
+                            UPDATE 2.0 : <span class="highlight">August 2, 2026 — 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ===== TAB: BULLETIN ===== -->
             <div class="tab-content" id="tab-bulletin">
 
@@ -1558,7 +1698,7 @@
 
                 <div class="bulletin-posts-vertical">
 
-                    <!-- ================== ISSUE #1 (Звёздный стиль) ================== -->
+                    <!-- ================== ISSUE #1 ================== -->
                     <div class="issue-1">
                         <div style="text-align: center; padding: 20px 0 10px 0; border-bottom: 2px solid rgba(100, 180, 255, 0.2); margin-bottom: 20px;">
                             <h2 style="font-size: 2.4rem; font-weight: 800; color: #6bcbff; letter-spacing: 1px; text-shadow: 0 0 20px rgba(100, 180, 255, 0.1);">#1 What's Happening</h2>
@@ -1603,7 +1743,7 @@
                         </div>
                     </div>
 
-                    <!-- ================== ISSUE #2 (Тёмный/Мистический стиль) ================== -->
+                    <!-- ================== ISSUE #2 ================== -->
                     <div class="issue-2">
                         <div style="text-align: center; padding: 40px 0 10px 0; border-top: 2px solid rgba(150, 50, 255, 0.1); border-bottom: 2px solid rgba(150, 50, 255, 0.2); margin-top: 20px; margin-bottom: 20px;">
                             <h2 style="font-size: 2.4rem; font-weight: 800; color: #c084fc; letter-spacing: 1px; text-shadow: 0 0 20px rgba(150, 50, 255, 0.1);">#2 World's</h2>
@@ -1641,7 +1781,7 @@
                         </div>
                     </div>
 
-                    <!-- ================== ISSUE #3 (Хакерский стиль) ================== -->
+                    <!-- ================== ISSUE #3 (HACKER) ================== -->
                     <div class="hacker-issue-wrapper" id="hackerIssue">
                         <h2 class="hacker-issue-title">#3 HACKER IN GAME!</h2>
                         
@@ -1671,6 +1811,51 @@
                                     <span class="code-line">> <span class="corrupted">WARNING</span>: This is not a drill.</span>
                                     <span class="code-line" style="color:#1eff00; animation: glitchText 0.15s infinite;">>NODGIA IS COMING IN ISLAND</span>
                                     <span class="code-line">> 01001000 01100101 01101100 01110000 00100000 01110101 01110011</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================== ISSUE #4 ================== -->
+                    <div class="issue-4">
+                        <div style="text-align: center; padding: 40px 0 10px 0; border-top: 2px solid rgba(255, 215, 0, 0.1); border-bottom: 2px solid rgba(255, 215, 0, 0.2); margin-top: 20px; margin-bottom: 20px;">
+                            <h2 style="font-size: 2.4rem; font-weight: 800; color: #f7e272; letter-spacing: 1px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);">#4 The Awakening</h2>
+                        </div>
+
+                        <!-- Пост 1 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <img class="bulletin-post-image" src="https://cdn.shopify.com/s/files/1/0830/7635/0259/files/PotionBrews.png" alt="Mystery Island">
+                                <h2 class="bulletin-post-title">⚡ The Material is Complete</h2>
+                                <div class="bulletin-post-text">
+                                    <p>The Dark Wanderer and Loki have finally finished their work. The <strong>Stobelizing Material</strong> is fully synthesized. The <strong>Artifact</strong> has been reconstructed.</p>
+                                    <p>They are no longer searching. They are <strong>waiting</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Пост 2 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">📖 The Second Legend</h2>
+                                <div class="bulletin-post-text">
+                                    <p><strong>Legend of the Void King</strong>.</p>
+                                    <p>Long before the Mask of Destruction, there was the Void King — a being born from the emptiness between worlds. He created the <strong>Artifact</strong> as a key to enter the mortal realm. Daigo did not destroy the Void King... he merely <strong>imprisoned</strong> him.</p>
+                                    <p><br>The Artifact is the key. The Material is the fuel. <strong>The Void King is waking up.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Пост 3 -->
+                        <div class="bulletin-post">
+                            <div class="bulletin-post-content">
+                                <h2 class="bulletin-post-title">🛡️ Nodgia's Call</h2>
+                                <div class="bulletin-post-text">
+                                    <p><strong>This is Nodgia.</strong></p>
+                                    <p>The system is no longer safe. The Wanderer and Loki have gone too far.</p>
+                                    <p>I built this world. I built the <strong>Star Islands</strong>. And I will not let the Void King destroy what we have created.</p>
+                                    <p><br>I am taking control. I am ready to defend the islands. <strong>Prepare for war.</strong></p>
+                                    <p style="color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.2);">— Nodgia.</p>
                                 </div>
                             </div>
                         </div>
@@ -1818,6 +2003,16 @@
     </div>
 
     <script>
+        // ================================================================
+        //  LOADING SCREEN LOGIC
+        // ================================================================
+        window.addEventListener('load', function() {
+            // Загрузка длится 4 секунды (буквы летят 2.2с, исчезают, затем появляется иконка)
+            setTimeout(function() {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 4000);
+        });
+
         // ================================================================
         //  SPACE BACKGROUND
         // ================================================================
@@ -1973,8 +2168,7 @@
         }
 
         // ================================================================
-        //  TABS
-        // ================================================================
+        //  TABS        // ================================================================
 
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -1990,7 +2184,7 @@
         //  COUNTDOWN TIMER
         // ================================================================
 
-        const targetDate = new Date('August 9, 2026 18:00:00').getTime();
+        const targetDate = new Date('August 2, 2026 18:00:00').getTime();
 
         function updateCountdown() {
             const now = Date.now();
@@ -2395,166 +2589,8 @@
         generateForceNumber();
 
         // ================================================================
-        //  TAB SWITCHING - RESET BACKGROUND
+        //  HACKER MODE (MATRIX RAIN & BACKGROUND SWITCH) — ПОЛНОСТЬЮ УДАЛЕНО
         // ================================================================
-
-        // When switching to any tab other than 'bulletin', ensure normal space background is visible
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tabId = this.dataset.tab;
-                if (tabId !== 'bulletin') {
-                    // Disable hacker mode if it's active
-                    if (isHackerMode) {
-                        disableHackerMode();
-                    }
-                    // Ensure normal space background is shown
-                    const spaceBg = document.querySelector('.space-bg');
-                    if (spaceBg) {
-                        spaceBg.style.opacity = '1';
-                        spaceBg.style.display = 'block';
-                    }
-                }
-            });
-        });
-
-        // ================================================================
-        //  HACKER MODE (MATRIX RAIN & BACKGROUND SWITCH)
-        // ================================================================
-
-        const hackerIssue = document.getElementById('hackerIssue');
-        const bodyEl = document.body;
-        const matrixCanvas = document.getElementById('matrixCanvas');
-        let matrixInterval = null;
-        let isHackerMode = false;
-        const spaceBg = document.querySelector('.space-bg');
-
-        function enableHackerMode() {
-            if (isHackerMode) return;
-            isHackerMode = true;
-            bodyEl.classList.add('hacker-mode');
-            if (spaceBg) {
-                spaceBg.style.opacity = '0';
-                setTimeout(() => {
-                    spaceBg.style.display = 'none';
-                }, 1000);
-            }
-            startMatrixRain();
-        }
-
-        function disableHackerMode() {
-            if (!isHackerMode) return;
-            isHackerMode = false;
-            bodyEl.classList.remove('hacker-mode');
-            stopMatrixRain();
-            if (spaceBg) {
-                spaceBg.style.display = 'block';
-                spaceBg.style.opacity = '1';
-            }
-        }
-
-        // Matrix Rain Logic
-        function startMatrixRain() {
-            const ctx = matrixCanvas.getContext('2d');
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-
-            const chars = '01';
-            const fontSize = 16;
-            const columns = matrixCanvas.width / fontSize;
-            const drops = [];
-            for (let x = 0; x < columns; x++) {
-                drops[x] = 1;
-            }
-
-            function drawMatrix() {
-                if (!isHackerMode) return;
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-
-                ctx.fillStyle = '#00ff00';
-                ctx.font = fontSize + 'px monospace';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = chars[Math.floor(Math.random() * chars.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                    if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-                matrixInterval = requestAnimationFrame(drawMatrix);
-            }
-            drawMatrix();
-        }
-
-        function stopMatrixRain() {
-            if (matrixInterval) {
-                cancelAnimationFrame(matrixInterval);
-                matrixInterval = null;
-            }
-            const ctx = matrixCanvas.getContext('2d');
-            ctx.clearRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-        }
-
-        // Observer to detect when Issue #3 enters the viewport
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    enableHackerMode();
-                } else {
-                    // Only disable if we are still on the bulletin tab, but issue #3 is scrolled away
-                    const bulletinTab = document.getElementById('tab-bulletin');
-                    if (bulletinTab && bulletinTab.classList.contains('active')) {
-                        // Check if any part of hacker issue is still visible
-                        const rect = hackerIssue.getBoundingClientRect();
-                        if (rect.bottom < 0 || rect.top > window.innerHeight) {
-                            disableHackerMode();
-                        }
-                    } else {
-                        disableHackerMode();
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Start observing
-        if (hackerIssue) {
-            observer.observe(hackerIssue);
-        }
-
-        // Also handle tab switches
-        const allTabBtns = document.querySelectorAll('.tab-btn');
-
-        allTabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const tabId = this.dataset.tab;
-                if (tabId !== 'bulletin') {
-                    disableHackerMode();
-                } else {
-                    // Re-check if hacker issue is visible after a tiny delay
-                    setTimeout(() => {
-                        if (hackerIssue) {
-                            const rect = hackerIssue.getBoundingClientRect();
-                            const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
-                            if (isVisible) {
-                                enableHackerMode();
-                            } else {
-                                disableHackerMode();
-                            }
-                        }
-                    }, 100);
-                }
-            });
-        });
-
-        // Handle window resize for matrix canvas
-        window.addEventListener('resize', () => {
-            if (isHackerMode) {
-                matrixCanvas.width = window.innerWidth;
-                matrixCanvas.height = window.innerHeight;
-            }
-        });
 
         // ================================================================
         //  INIT
